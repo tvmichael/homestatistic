@@ -1,0 +1,148 @@
+html {
+    height: 100%;
+}
+
+body {
+    background-image: url("../images/background-min.png");
+    background-repeat: no-repeat;
+    min-height: 100%;
+    position: relative;
+}
+
+
+/* ====================================================== */
+/* HEADER */
+.pp-header{
+    min-height: 104px;
+    background-color: white;
+    opacity: 0.91;    
+}
+.pp-header img {
+    position: relative;
+    left: 101px;
+    top: 20px;
+}
+.pp-header .nav{
+    margin-top: 50px;
+}
+.pp-header .nav a{
+    font-size: 24px;
+    font-family: "Verdana";
+    color: rgb(42, 42, 41);
+    line-height: 1.015;
+}
+.pp-nav-mobile{
+    position: absolute;
+    top: 56px;
+    right: 16px;
+    background-color: white;
+    opacity: 0.91;
+    padding: 10px;
+    border: 1px solid rgb(218, 218, 218);
+    border-radius: 0px 0px 5px 5px;
+}
+
+/* ====================================================== */
+/* MAIN */
+
+.pp-table{
+    display: table;
+    margin-top: -106px;
+    padding-top: 116px;
+    height: 100vh;
+    width: 100%;
+    padding-bottom: 54px;
+}
+.pp-cell{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.pp-top-m{
+    height: 100px;
+}
+.pp-top-s{
+    height: 20px;
+}
+
+/* FORM */
+.pp-form{
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(151, 168, 196);
+    border-radius: 9px;
+    background-color: rgb(255, 255, 255);
+    opacity: 0.78;
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.pp-form-top{
+    min-height: 100px;
+}
+
+.pp-form-arrow{
+    opacity: 0.78;
+    padding-top: 40px;
+}
+.pp-form-input{
+
+}
+.pp-form-curs{
+    font-size: 18px;
+    font-family: "Verdana";
+    color: rgb(51, 51, 38);
+    line-height: 1.354;
+}
+.pp-form-commission{
+    font-size: 14px;
+    font-family: "Verdana";
+    color: rgba(51, 51, 38, 0.859);
+    line-height: 1.741;
+}
+.pp-form button{
+    border-radius: 8px;
+    background-color: rgb(51, 116, 224);
+    border: none;
+    width: 280px;
+    height: 62px;
+    cursor: pointer;
+}
+.pp-form button img{
+    margin-right: 20px;
+    margin-top: -10px;
+}
+.pp-form button:hover{
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
+.pp-botton-text{
+    font-size: 24px;
+    font-family: "Verdana";
+    color: rgb(255, 255, 255);
+    -moz-transform: matrix( 1.67664670658683,0,0,1.67567567567568,0,0);
+    -webkit-transform: matrix( 1.67664670658683,0,0,1.67567567567568,0,0);
+    -ms-transform: matrix( 1.67664670658683,0,0,1.67567567567568,0,0);
+}
+.pp-form input{
+    text-align: right;
+}
+
+/* ====================================================== */
+/* FOOTER */
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 44px;
+    line-height: 30px;
+    background-color: rgb(65, 65, 65);
+    opacity: 0.8;
+}
+
+.footer-text {
+    font-size: 14px;
+    font-family: "Verdana";
+    color: rgb(255, 255, 255);
+    line-height: 1.741;
+    text-align: left;
+}
