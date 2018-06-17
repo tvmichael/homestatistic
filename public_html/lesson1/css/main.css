@@ -13,13 +13,20 @@ body {
 /* ====================================================== */
 /* HEADER */
 .pp-header{
+  position: relative;
     min-height: 104px;
     background-color: white;
-    opacity: 0.91;    
+    opacity: 0.91;
+    z-index: 10;
 }
-.pp-header img {
+.pp-header .pp-img {
     position: relative;
     left: 101px;
+    top: 20px;
+}
+.pp-header .pp-img-small{
+    position: relative;
+    left: 0px;
     top: 20px;
 }
 .pp-header .nav{
