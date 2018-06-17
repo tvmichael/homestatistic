@@ -9,43 +9,79 @@ html, body {
   background-color: rgb( 255, 255, 255 );
   height: 100px;
 }
+.snow-h-logo{
+  position: absolute;
+  left: 98px;
+  top: 34px;
+}
 
 
 /* PHOTO */
 /*---------------------------------------------------------------*/
-.snow-p{
+.snow-p-container{
   height: 100vh;
   margin-top: -100px;
   padding-top: 100px;
+  width: 100%;
 }
-.snow-photo-img{
-  max-width: 100%;
+.snow-block-img{
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background-color: #eeeeee;
 }
-
+.snow-block-img .snow-img{
+  height: 0px;
+  padding-top: 20%;
+  position: relative;
+  display: block;
+}
+.snow-block-img .snow-img img{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 /* MAIN */
 /*---------------------------------------------------------------*/
 
-/* TEXT */
+/* MAIN - TEXT */
 .snow-m .snow-text{
   min-height: 452px;
 }
+.snow-m .snow-padding{
+  padding-top: 80px;
+}
 .snow-m .snow-text h2{
+  display: inline-block;
   font-family: 'Playfair Display', serif;
   font-size: 30px;
   color: rgb( 23, 23, 23 );
   line-height: 1.6;
   text-align: left;
 }
+.snow-m .snow-padding-p{
+  width: 90%;
+  display: inline-block;
+  text-align: left;
+  font-family: 'Work Sans', sans-serif;
+}
+.snow-m img{
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
 /* MAIN - NUMBERS */
 .snow-m .snow-numbers {
   background-color: rgb( 49, 49, 49 );
   background-image: url('../images/pattern-bg.png');
+}
+.snow-m .snow-numbers-h{
   min-height: 258px;
 }
-.snow-m .snow-portfolio, .snow-portfolio-text{
+.snow-m .snow-num-blok{
   font-size: 14px;
-  font-family: "WorkSans";
+  font-family: 'Work Sans', sans-serif;
   color: rgb( 255, 255, 255 );
   text-transform: uppercase;
   line-height: 2.143;
@@ -56,8 +92,32 @@ html, body {
 .snow-m .snow-work-together {
   min-height: 396px
 }
-
-
+.snow-m .snow-work-together h3{
+  padding-top: 50px;
+  font-size: 38px;
+  font-family: 'Playfair Display', serif;
+  color: rgb( 29, 29, 29 );
+  font-weight: bold;
+  line-height: 2.211;
+}
+.snow-m .snow-work-together p{
+  margin: 20px 0px;
+  font-size: 15px;
+  font-family: 'Work Sans', sans-serif;
+  color: rgb( 95, 95, 95 );
+  line-height: 1.6;
+}
+.snow-m .snow-work-together button{
+  background-color: rgb( 37, 37, 37 );
+  width: 180px;
+  height: 54px;
+  font-size: 14px;
+  font-family: 'Work Sans', sans-serif;
+  color: rgb( 255, 255, 255 );
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+}
 /* FOOTER */
 /*---------------------------------------------------------------*/
 .snow-f {

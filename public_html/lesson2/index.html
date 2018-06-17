@@ -11,7 +11,7 @@
 <body>
 
   <!-- HEADER -->
-  <header class="snow-h">
+  <header id="s-header" class="snow-h">
     <div class="container-fluid">
       <div class="row">
         <div class="snow-h-logo">
@@ -24,11 +24,15 @@
   <!-- PHOTO -->
   <div class="container-fluid">
     <div class="row">
-      <div class="snow-p">
-        <picture>
-          <source media="(min-width: 800px)" srcset="images/snowing-min.png">
-          <img class="snow-photo-img" src="images/snowing.jpeg" />
-        </picture>
+      <div class="snow-p-container">
+        <div class="snow-block-img">
+          <div class="snow-img">
+            <picture>
+              <!--source media="(min-width: 600px)" srcset="images/snowing-min.jpg"-->
+              <img class="snow-photo-img" src="images/snowing.jpg"/>
+            </picture>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -36,60 +40,70 @@
   <!-- MAIN CONTENT -->
   <main class="snow-m">
     <!-- TEXT -->
-    <section class="snow-text">
+    <section id="s-text" class="snow-text">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-6 text-center snow-padding">
             <h2>
               I create <b><i>everything</i></b> digital,<br>
               printable & minimal.
             </h2>
           </div>
-          <div class="col-md-6">
-            <p>
-              Nullam lobortis neque turpis, nec tempus sem pharetra at. Donec et lobortis
-              quam, in ullamcorper velit. Aliquam maximus ullamcorper ligula, at placerat
-              hendrerit sed. Sed metus urna, bibendum id tortor , feugiat pharetra ipsum.
-              Aliquam vehicula neque sit amet dolor malesuada pretium.
-            </p>
-            <p>
-              Curabitur tristique, felis ut mattis auctor, elit ante laoreet libero, ac sceleris
-              lorem quam vitae libero. Suspendisse aliquet eget risus quis vehicula.
-            </p>
-            <img src="images/signature.png" />
+          <div class="col-md-6 text-center snow-padding">
+            <div class="snow-padding-p">
+              <p>
+                Nullam lobortis neque turpis, nec tempus sem pharetra at. Donec et lobortis
+                quam, in ullamcorper velit. Aliquam maximus ullamcorper ligula, at placerat
+                hendrerit sed. Sed metus urna, bibendum id tortor , feugiat pharetra ipsum.
+                Aliquam vehicula neque sit amet dolor malesuada pretium.
+              </p>
+              <p>
+                Curabitur tristique, felis ut mattis auctor, elit ante laoreet libero, ac sceleris
+                lorem quam vitae libero. Suspendisse aliquet eget risus quis vehicula.
+              </p>
+              <img src="images/signature.png" />
+            </div>
           </div>
         </div>
       </div>
     </section>
     <!-- NUMBER -->
-    <section class="snow-numbers">
+    <section id="s-number" class="snow-numbers">
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-6">
-            <div class="row">
+            <div class="row snow-numbers-h">
               <div class="col-md-6">
-                <img src="images/pe-7s-portfolio.png" alt="">
-                <span class="snow-portfolio">548</span>
-                <span class="snow-portfolio-text">projects completed</span>
+                <div class="snow-num-blok">
+                  <img src="images/pe-7s-portfolio.png" alt="">
+                  <span class="snow-num">548</span>
+                  <span class="snow-num-t">projects completed</span>
+                </div>
               </div>
               <div class="col-md-6">
-                <img src="images/pe-7s-clock.png" alt="">
-                <span class="snow-portfolio">1465</span>
-                <span class="snow-portfolio-text">WORKING HOURS</span>
+                <div class="snow-num-blok">
+                  <img src="images/pe-7s-clock.png" alt="">
+                  <span class="snow-num">1465</span>
+                  <span class="snow-num-t">WORKING HOURS</span>
+                </div>
               </div>
             </div>
           </div>
           <div class="col-md-6">
-            <div class="row">
+            <div class="row snow-numbers-h">
               <div class="col-md-6">
-                <img src="images/pe-7s-star.png" alt="">
-                <span class="snow-portfolio">612</span>
-                <span class="snow-portfolio-text">POSITIVE FEEDBACKS</span>
+                <div class="snow-num-blok">
+                  <img src="images/pe-7s-star.png" alt="">
+                  <span class="snow-num">612</span>
+                  <span class="snow-num-t">POSITIVE FEEDBACKS</span>
+                </div>
               </div>
               <div class="col-md-6">
-                <img src="images/pe-7s-like.png" alt="">
-                <span class="snow-portfolio">735</span>
-                <span class="snow-portfolio-text">HAPPY CLIENTS</span>
+                <div class="snow-num-blok">
+                  <img src="images/pe-7s-like.png" alt="">
+                  <span class="snow-num">735</span>
+                  <span class="snow-num-t">HAPPY CLIENTS</span>
+                </div>
               </div>
             </div>
           </div>
@@ -97,10 +111,10 @@
       </div>
     </section>
     <!-- WORK -->
-    <section class="snow-work-together">
+    <section id="s-work" class="snow-work-together">
       <div class="container-fluid">
         <div class="row">
-          <div class="col">
+          <div class="col text-center">
             <h3>Let`s work together</h3>
             <p>Donec orci sem, pretium ac dolor et,<br> faucibus faucibus mauris. </p>
             <button type="button" name="button">contact me</button>
@@ -111,7 +125,7 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="snow-f">
+  <footer id="s-footer" class="snow-f">
     <div class="container-fluid">
       <div class="row">
         <div class="col">
