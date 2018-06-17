@@ -1,0 +1,81 @@
+html, body {
+  height: 100%
+}
+
+
+/* HEADER */
+/*---------------------------------------------------------------*/
+.snow-h {
+  background-color: rgb( 255, 255, 255 );
+  height: 100px;
+}
+
+
+/* PHOTO */
+/*---------------------------------------------------------------*/
+.snow-p{
+  height: 100vh;
+  margin-top: -100px;
+  padding-top: 100px;
+}
+.snow-photo-img{
+  max-width: 100%;
+}
+
+
+/* MAIN */
+/*---------------------------------------------------------------*/
+
+/* TEXT */
+.snow-m .snow-text{
+  min-height: 452px;
+}
+.snow-m .snow-text h2{
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  color: rgb( 23, 23, 23 );
+  line-height: 1.6;
+  text-align: left;
+}
+/* MAIN - NUMBERS */
+.snow-m .snow-numbers {
+  background-color: rgb( 49, 49, 49 );
+  background-image: url('../images/pattern-bg.png');
+  min-height: 258px;
+}
+.snow-m .snow-portfolio, .snow-portfolio-text{
+  font-size: 14px;
+  font-family: "WorkSans";
+  color: rgb( 255, 255, 255 );
+  text-transform: uppercase;
+  line-height: 2.143;
+  text-align: left;
+}
+
+/* MAIN - WORK-TOGETHER */
+.snow-m .snow-work-together {
+  min-height: 396px
+}
+
+
+/* FOOTER */
+/*---------------------------------------------------------------*/
+.snow-f {
+  background-color: rgb( 235, 235, 235 );
+  height: 160px;
+}
+.snow-social-icons{
+  margin-top: 40px;
+}
+.snow-social-icons a {
+  display: inline-block;
+  width: 22px;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+.snow-f p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: rgb( 95, 95, 95 );
+  line-height: 2;
+}
