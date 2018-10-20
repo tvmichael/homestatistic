@@ -9,7 +9,8 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
-use app\models\Country;
+use app\models\lessons\Country;
+use app\models\lessons\EntryForm;
 
 class SiteController extends Controller
 {
@@ -62,6 +63,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+
         return $this->render('index');
     }
 
@@ -126,4 +128,56 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+
+
+    /** YII LESSONS ------------------------------------------------------------------------------------------------- */
+    /**
+     * Class lessons
+     */
+    public function actionLessons($lesson)
+    {
+
+        if($lesson == 'form')
+        {
+            $form = new EntryForm();
+            if($form->load(Yii::$app->request->post()) && $form->validate())
+            {
+                $data = ['form'=>$form, 'id'=>'1919', 'errors'=>$form->getErrors()];
+            }
+            else
+            {
+                $data = ['form'=>$form, 'id'=>'1919', 'errors'=>$form->getErrors()];
+            }
+
+            return $this->render('lessons/'.$lesson, $data);
+        }
+
+
+
+    }
+
+
+    /** TEST CLASS  ------------------------------------------------------------------------------------------------- */
+    /**
+     * Class lessons
+    */
+    public function actionHome($lesson)
+    {
+        $lesson = intval($lesson);
+        $data = ['lesson'=> $lesson];
+
+        return $this->render('home/lesson'.$lesson, $data);
+    }
+
+
+    /** HELPER LESSONS  --------------------------------------------------------------------------------------------- */
+    /**
+     * Class helper - url
+     */
+    public function actionHelper($helper)
+    {
+        return $this->render('helper/'.$helper);
+    }
+
+
 }
