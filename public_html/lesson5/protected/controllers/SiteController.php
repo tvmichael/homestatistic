@@ -11,6 +11,7 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\lessons\Country;
 use app\models\lessons\EntryForm;
+use app\models\home\Dtype;
 
 class SiteController extends Controller
 {
@@ -169,6 +170,26 @@ class SiteController extends Controller
         return $this->render('home/lesson'.$lesson, $data);
     }
 
+    public function actionDtype()
+    {
+        $dtype = new Dtype();
+        $data =['dtype'=>$dtype];
+
+        if ($dtype->load(Yii::$app->request->post()) && $dtype->validate())
+        {
+            $id = Yii::$app->request->post('id');
+            if (($model = Dtype::findOne($id)) !== null) {
+                $dtype->save();
+                //return $model;
+            }
+
+
+            return $this->render('home/dsave', $data);
+        }
+
+        return $this->render('home/dform', $data);
+    }
+
 
     /** HELPER LESSONS  --------------------------------------------------------------------------------------------- */
     /**
@@ -179,5 +200,16 @@ class SiteController extends Controller
         return $this->render('helper/'.$helper);
     }
 
+
+    /** CSS LESSONS  --------------------------------------------------------------------------------------------- */
+    /**
+     * Class helper - url
+     */
+
+    public function actionCss(){
+
+        return $this->render('css/index');
+
+    }
 
 }
