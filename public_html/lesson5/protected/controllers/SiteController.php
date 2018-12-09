@@ -170,6 +170,10 @@ class SiteController extends Controller
         return $this->render('home/lesson'.$lesson, $data);
     }
 
+
+    /**
+     *  my simple lessons
+     * */
     public function actionDtype()
     {
         $dtype = new Dtype();
@@ -190,6 +194,15 @@ class SiteController extends Controller
         return $this->render('home/dform', $data);
     }
 
+
+    /**
+     * calendar
+    */
+
+    public function actionCalendar(){
+
+       return $this->render('calendar/index');
+    }
 
     /** HELPER LESSONS  --------------------------------------------------------------------------------------------- */
     /**
