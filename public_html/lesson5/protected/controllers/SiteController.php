@@ -198,10 +198,15 @@ class SiteController extends Controller
     /**
      * calendar
     */
+    public function actionCalendar($version = null){
+        if(!$version || $version == 1)
+            $data['calendar'] = Yii::$app->sampleCalendar->makeCalendarV1();
+        elseif ($version = 2)
+            $data['calendar'] = Yii::$app->sampleCalendar->show();
 
-    public function actionCalendar(){
+        $data['version'] = $version;
 
-       return $this->render('calendar/index');
+        return $this->render('calendar/index', $data);
     }
 
     /** HELPER LESSONS  --------------------------------------------------------------------------------------------- */
