@@ -1,7 +1,5 @@
 <?php
-
-namespace app\models;
-
+namespace app\models\lessons;
 
 use yii\db\ActiveRecord;
 
