@@ -152,7 +152,10 @@ class SiteController extends Controller
 
             return $this->render('lessons/'.$lesson, $data);
         }
-
+        if($lesson == 'db')
+        {
+            return $this->render('lessons/'.$lesson);
+        }
 
 
     }
