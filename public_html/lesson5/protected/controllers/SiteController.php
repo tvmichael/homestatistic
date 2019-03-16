@@ -9,9 +9,9 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
-use app\models\lessons\Country;
 use app\models\lessons\EntryForm;
 use app\models\home\Dtype;
+use app\models\lessons\LoginForm as lf;
 
 class SiteController extends Controller
 {
@@ -131,6 +131,7 @@ class SiteController extends Controller
     }
 
 
+    /* -------------------------------------------------------------------------------------------------------------- */
     /** YII LESSONS ------------------------------------------------------------------------------------------------- */
     /**
      * Class lessons
@@ -138,6 +139,31 @@ class SiteController extends Controller
     public function actionLessons($lesson)
     {
 
+        // test: login form
+        if($lesson == 'loginform')
+        {
+
+            $errors = [];
+
+            $model = new lf;
+
+            $model->load(\Yii::$app->request->post());
+
+            if($model->validate())
+            {
+
+                return $this->render('lessons/'.$lesson, ['model'=>$model]);
+            }
+            else
+            {
+                $errors = $model->errors;
+                return $this->render('lessons/'.$lesson, ['model'=>$model, 'errors'=>$errors]);
+            }
+
+
+        }
+
+        // test: entry form
         if($lesson == 'form')
         {
             $form = new EntryForm();
@@ -216,8 +242,9 @@ class SiteController extends Controller
     /**
      * Class helper - url
      */
-    public function actionHelper($helper)
+    public function actionHelper($helper = null)
     {
+        $helper = 'url';
         return $this->render('helper/'.$helper);
     }
 
@@ -231,6 +258,16 @@ class SiteController extends Controller
 
         return $this->render('css/index');
 
+    }
+
+
+    /** SLIDER LESSONS  --------------------------------------------------------------------------------------------- */
+    /**
+     * fotorama js
+     * @return string
+     */
+    public function actionFotorama(){
+        return $this->render('fotorama/index');
     }
 
 }

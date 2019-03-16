@@ -28,7 +28,9 @@ $this->title = 'Lesson - Form';
                     <?php $f = ActiveForm::begin();?>
 
                         <?=$f->field($form, 'login');?>
+
                         <?=$f->field($form, 'email');?>
+
                         <?=$f->field($form, 'password');?>
 
                         <div class="form-group">

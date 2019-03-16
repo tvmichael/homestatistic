@@ -9,6 +9,7 @@ $this->title = 'My Yii Application';
 ?>
 <div class="site-index">
     <div class="body-content">
+        <h2>YII <small>index.php</small></h2>
         <div class="row">
 
             <div class="col-md-12">
@@ -17,8 +18,17 @@ $this->title = 'My Yii Application';
                     <h4>Working with Forms</h4>
                     <p><a class="" href="<?php echo Url::to(['/site/lessons','lesson'=>'form']);?>">form</a></p>
                 </div>
+                <div class="col-md-3">
+                    <h4>Working with LoginForms</h4>
+                    <p><a class="" href="<?php echo Url::to(['/site/lessons','lesson'=>'loginform']);?>">login form</a></p>
+                </div>
+                <div class="col-md-3">
+                    <h4>SQL Work with DB</h4>
+                    <p><a class="" href="<?php echo Url::to(['/site/lessons','lesson'=>'db']);?>">Data base</a></p>
+                </div>
             </div>
 
+            <!-- HELPER -->
             <div class="col-md-12">
                 <hr><h3>Helper</h3>
                 <div class="col-md-3">
@@ -61,6 +71,15 @@ $this->title = 'My Yii Application';
                         <a class="btn btn-default btn-xs" href="<?php echo Url::to(['site/calendar', 'version'=>1]);?>">Calendar v1. </a>
 
                         <a class="btn btn-default btn-xs" href="<?php echo Url::to(['site/calendar', 'version'=>2]);?>">Calendar v2. </a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <hr><h3>Slider</h3>
+                <div class="col-lg-12">
+                    <p>
+                        <a class="" href="<?php echo Url::to(['site/fotorama']);?>">FotoRama</a>
                     </p>
                 </div>
             </div>
