@@ -14,15 +14,6 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
     ],
 
-
-    //'bootstrap' => ['dev'],
-    //'bootstrap' => ['debug'], // 1. змінив для відображення пенелі налагодження внизу екрану
-    /*'modules' => [
-        'debug' => [ // 2. також треба додати для відображення пенелі налагодження внизу екрану
-            'class' => 'yii\debug\Module',
-            'allowedIPs' => '*',
-        ],
-    ],*/
     'components' => [
         'sampleCalendar'=>[
             'class' => 'app\components\SampleCalendar',
@@ -59,15 +50,8 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
-            ],
-        ],
-        */
-       'urlManager'=>$url,
+
+        //'urlManager'=>$url,
 
         'assetManager' => [
             'converter' => [ // 1. треба додати (converter) - для використання файлів less
@@ -82,6 +66,7 @@ $config = [
     'params' => $params,
 ];
 
+/*
 if (YII_ENV_DEV) {
     // configuration adjustments for 'dev' environment
     $config['bootstrap'][] = 'debug';
@@ -97,6 +82,34 @@ if (YII_ENV_DEV) {
         // uncomment the following to add your IP if you are not connecting from localhost.
         //'allowedIPs' => ['127.0.0.1', '::1'],
     ];
+}
+
+//'bootstrap' => ['dev'],
+//'bootstrap' => ['debug'], // 1. змінив для відображення пенелі налагодження внизу екрану
+/*'modules' => [
+    'debug' => [ // 2. також треба додати для відображення пенелі налагодження внизу екрану
+        'class' => 'yii\debug\Module',
+        'allowedIPs' => '*',
+    ],
+],*/
+
+if (YII_DEBUG) {
+    // configuration adjustments for 'dev' environment
+    $config = \yii\helpers\ArrayHelper::merge($config, [
+        'bootstrap'=>['debug','gii'],
+        'modules'=>[
+            'debug' => 'yii\debug\Module',
+            'gii' => [
+                'class'=>'yii\gii\Module',
+                'generators' => [
+                    'crud'   => [
+                        'class'     => 'yii\gii\generators\crud\Generator',
+                        'templates' => ['popup' => '@app/components/generators/popup']
+                    ]
+                ]
+            ],
+        ],
+    ]);
 }
 
 return $config;

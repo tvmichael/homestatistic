@@ -270,4 +270,14 @@ class SiteController extends Controller
         return $this->render('fotorama/index');
     }
 
+
+    /** OTHER TEST  --------------------------------------------------------------------------------------------- */
+    /**
+     * fotorama js
+     * @return string
+     */
+    public function actionExelFile(){
+        return $this->render('fotorama/index');
+    }
+
 }
