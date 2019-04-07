@@ -273,11 +273,10 @@ class SiteController extends Controller
 
     /** OTHER TEST  --------------------------------------------------------------------------------------------- */
     /**
-     * fotorama js
      * @return string
      */
-    public function actionExelFile(){
-        return $this->render('fotorama/index');
+    public function actionExcelFile(){
+        return $this->render('test/excel-file');
     }
 
 }

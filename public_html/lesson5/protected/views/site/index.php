@@ -84,6 +84,14 @@ $this->title = 'My Yii Application';
                 </div>
             </div>
 
+            <div class="col-md-12">
+                <hr><h3>Other TEST</h3>
+                <div class="col-lg-12">
+                    <p>
+                        <a class="" href="<?php echo Url::to(['site/excel-file']);?>">Excel file</a>
+                    </p>
+                </div>
+            </div>
             <?php Url::remember();?>
         </div>
     </div>
