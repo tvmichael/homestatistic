@@ -4,24 +4,37 @@
  * User: Michael
  * Date: 07.04.2019
  */
+include_once "Logging.php";
+$log = new Logging();
+$log->lfile(getcwd().'/mylog.txt');
 ?>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<h2>SAVE FILE</h2>
+<p>
+<?php
+if(!empty($_FILES))
+{
+    $uploaddir = getcwd().'/file/';
+    $uploadfile = $uploaddir.basename($_FILES['file']['name']);
 
-<div class="col-md-12">
-    <h2>Excel file</h2>
-    <button id="excel-file">Retrieve excel file</button>
-</div>
-<script>
-    $('#excel-file').click(function () {
-        console.log('Excel File:');
+    if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)) {
+        echo "File download.\n";
+    } else {
+        echo "Error!\n";
+    }
+}
+?>
+</p>
+<p>Write LOG:</p>
+<?php
+// write message to the log file
+$log->lwrite($_REQUEST);
+$log->lwrite($_FILES);
+// close log file
+$log->lclose();
 
-        $.getJSON( "http://groot.t.min.org.ua:8009/api/start_clustering", {"project":200} )
-            .done(function( json ) {
-                console.log(json);
-            })
-            .fail(function( jqxhr, textStatus, error ) {
-                var err = textStatus + ", " + error;
-                console.log( "Request Failed: " + err );
-            });
-    });
-</script>
+echo '<pre>';
+print_r($_REQUEST);
+print_r($_FILES);
+echo '</pre>';
+?>
+
