@@ -34,9 +34,6 @@ use yii\helpers\Url;
 
                 Url::to(['site/index', 'src' => 'ref1', '#' => 'name', 'content'=>'test string']);
                 <p class="text-primary"> <?php echo Url::to(['site/index', 'src' => 'ref1', '#' => 'name', 'content'=>'test string']);?></p>
-
-
-
                 <hr>
             </div>
         </div>
