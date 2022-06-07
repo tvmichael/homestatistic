@@ -1,0 +1,9 @@
+.purchase-content input {
+    width: 100%;
+}
+.purchase-content button {
+    width: 100%;
+}
+.purchase-content .add-button {
+    padding-top: 30px;
+}
