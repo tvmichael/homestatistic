@@ -7,3 +7,9 @@
 .purchase-content .add-button {
     padding-top: 30px;
 }
+.purchase-content .card {
+    margin-top: 20px;
+}
+.purchase-content td .badge {
+    min-width: 30px;
+}

@@ -64,8 +64,6 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        //Yii::$app->name = 'HomeStatistic';
-
         return $this->render('index');
     }
 
@@ -76,11 +74,9 @@ class SiteController extends Controller
      */
     public function actionPurchase()
     {
-        //Yii::$app->name = 'Purchase';
-
         return $this->render('purchase', [
             'productList' => ProductSearch::list(),
-            'spending' => SpendingSearch::today(),
+            'spending' => SpendingSearch::month(),
         ]);
     }
 
@@ -94,10 +90,12 @@ class SiteController extends Controller
         $datetime = Yii::$app->request->post('datetime');
         $productId = intval(Yii::$app->request->post('productId'));
         $price = floatval(Yii::$app->request->post('price'));
+        $userId = floatval(Yii::$app->request->post('user'));
 
         $model = new Spending();
         $model->productId = $productId;
         $model->price = $price;
+        $model->userId = $userId;
         $model->datetime = date ('Y-m-d H:i:s', strtotime($datetime));
 
         if($model->save()){

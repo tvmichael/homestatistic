@@ -3,6 +3,7 @@
 namespace app\models\search;
 
 use app\models\Product;
+use Cassandra\Date;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use app\models\Spending;
@@ -74,22 +75,23 @@ class SpendingSearch extends Spending
     /**
      * @return array
      */
-    public static function today(): array
+    public static function month(): array
     {
-        $today = (new Query())
+        $arr = (new Query())
             ->from(['S' => Spending::tableName()])
-            ->select(['P.name', 'S.price', 'S.id'])
+            ->select(['P.name', 'S.price', 'S.id', 'S.datetime'])
             ->where([
                 'between',
                 'S.datetime',
-                date('Y-m-d 00:00:00'),
-                date('Y-m-d 00:00:00', strtotime(' +1 day'))
+                date('Y-m-01 00:00:00'),
+                date('Y-m-t 23:59:59')
             ])
             ->leftJoin(['P'=>Product::tableName()], 'P.id=S.productId')
+            ->orderBy(['S.datetime' => SORT_DESC])
             ->all();
 
-        if(!is_array($today)) $today = [];
+        if(!is_array($arr)) $arr = [];
 
-        return $today;
+        return $arr;
     }
 }

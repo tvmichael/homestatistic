@@ -15,7 +15,17 @@ $this->title = 'Purchase';
             <div class="card">
                 <div class="card-header">
                     <div class="form-group">
-                        <input type="datetime-local" id="product-datetime" list="product-date" class="form-control" value="<?=date("d.m.Y");?>">
+                        <div class="row">
+                            <div class="col-10">
+                                <input type="datetime-local" id="product-datetime" list="product-date" class="form-control" value="<?=date("d.m.Y");?>">
+                            </div>
+                            <div class="col-2">
+                                <select id="product-user" class="form-control">
+                                    <option value="1">M</option>
+                                    <option value="2" selected>K</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="card-body">
@@ -48,7 +58,6 @@ $this->title = 'Purchase';
         </div>
 
         <div class="col-lg-12">
-            <br>
             <div class="card">
                 <div class="card-header">
                     Goods purchased today
@@ -60,22 +69,42 @@ $this->title = 'Purchase';
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">Name</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Product</th>
                                         <th scope="col">Price</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?$newDay = '';?>
                                     <?foreach ($spending as $id => $item):?>
+                                        <?
+                                        $d = date('d' , strtotime($item['datetime']));
+                                        if($newDay != $d):?>
+                                            <tr>
+                                                <td></td>
+                                                <td colspan="3">
+                                                    <span class="badge badge-light">
+                                                        <?=$d;?>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <?$newDay = $d?>
+                                        <?endif;?>
                                         <tr dada-id="<?=$item['id']?>">
-                                            <th scope='row'><?=$id+1;?></th>
+                                            <td><?=$id+1;?></td>
+                                            <td>
+                                                <small>
+                                                    <?=date('H:i', strtotime($item['datetime']));?>
+                                                </small>
+                                            </td>
                                             <td><?=$item['name']?></td>
-                                            <td><?=$item['price']?></td>
+                                            <td class="price"><?=$item['price']?></td>
                                         </tr>
                                     <?endforeach;?>
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <td colspan="2"></td>
+                                        <td colspan="3"></td>
                                         <td><strong class="total"></strong></td>
                                     </tr>
                                 </tfoot>
