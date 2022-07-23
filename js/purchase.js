@@ -2,6 +2,8 @@
     console.log('Purchase.');
     let isSend = false;
 
+    let userId =
+
     function totalPrice() {
         let total = 0;
         $('.table tbody tr').each(function () {
@@ -54,7 +56,7 @@
             isSend = true;
             $.ajax({
                 method: "POST",
-                url: "/site/purchase-add-product-ajax",
+                url: "/purchase/add-product-ajax",
                 data: data
             }).done(function(msg) {
                 console.log( msg );
