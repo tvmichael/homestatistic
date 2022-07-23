@@ -3,7 +3,7 @@
 namespace app\models\form;
 
 use Yii;
-use yii\base\Model;
+use app\models\User;
 
 /**
  * LoginForm is the model behind the login form.
@@ -11,7 +11,7 @@ use yii\base\Model;
  * @property-read User|null $user
  *
  */
-class LoginForm extends Model
+class LoginForm extends User
 {
     public $username;
     public $password;
@@ -31,7 +31,7 @@ class LoginForm extends Model
             // rememberMe must be a boolean value
             ['rememberMe', 'boolean'],
             // password is validated by validatePassword()
-            ['password', 'validatePassword'],
+            ['password', 'passwordValidate'],
         ];
     }
 
@@ -42,7 +42,7 @@ class LoginForm extends Model
      * @param string $attribute the attribute currently being validated
      * @param array $params the additional name-value pairs given in the rule
      */
-    public function validatePassword($attribute, $params)
+    public function passwordValidate($attribute, $params)
     {
         if (!$this->hasErrors()) {
             $user = $this->getUser();
