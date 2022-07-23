@@ -34,36 +34,49 @@ AppAsset::register($this);
             'class' => 'navbar navbar-expand-md navbar-dark bg-dark fixed-top',
         ],
     ]);
+
+    $menuItems = [];
+
+    if(Yii::$app->user->isGuest) {
+        $menuItems[] = ['label' => 'About', 'url' => ['/site/about']];
+        $menuItems[] = ['label' => 'Contact', 'url' => ['/site/contact']];
+
+        $menuItems[] = ['label' => 'Registration', 'url' => ['/site/registration']];
+        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+    } else {
+        $menuItems[] = ['label' => 'New purchase', 'url' => ['/purchase/add']];
+        $menuItems[] = ['label' => 'Statistic', 'items' => [
+            ['label' => 'N ', 'url' => '/site/statistic'],
+            ['label' => 'P', 'url' => '/site/statistic'],
+        ]];
+        $menuItems[] = ['label' => 'Product', 'items' => [
+            ['label' => 'Product list', 'url' => '/product'],
+            ['label' => 'Product category list', 'url' => '/product-category'],
+            ['label' => 'Spending list', 'url' => '/spending'],
+            //'<div class="dropdown-divider"></div>',
+        ]];
+        $menuItems[] = ['label' => 'About', 'url' => ['/site/about']];
+        $menuItems[] = ['label' => 'Contact', 'url' => ['/site/contact']];
+        $menuItems[] = (
+            '<li>'
+            . Html::beginForm(['/site/logout'], 'post', [
+                'class' => 'form-inline',
+                'data-user-id' => Yii::$app->user->getId(),
+            ])
+            . Html::submitButton(
+                'Logout (' . Yii::$app->user->identity->username . ')',
+                ['class' => 'btn btn-link logout']
+            )
+            . Html::endForm()
+            . '</li>'
+        );
+    }
+
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav'],
-        'items' => [
-            ['label' => 'New purchase', 'url' => ['/site/purchase']],
-            ['label' => 'Statistic', 'items' => [
-                ['label' => 'N ', 'url' => '/site/statistic'],
-                ['label' => 'P', 'url' => '/site/statistic'],
-            ]],
-            //['label' => 'About', 'url' => ['/site/about']],
-            //['label' => 'Contact', 'url' => ['/site/contact']],
-            ['label' => 'Product', 'items' => [
-                ['label' => 'Product list', 'url' => '/product'],
-                ['label' => 'Product category list', 'url' => '/product-category'],
-                ['label' => 'Spending list', 'url' => '/spending'],
-                //'<div class="dropdown-divider"></div>',
-            ]],
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/site/logout'], 'post', ['class' => 'form-inline'])
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link logout']
-                )
-                . Html::endForm()
-                . '</li>'
-            )
-        ],
+        'items' => $menuItems
     ]);
+
     NavBar::end();
     ?>
 </header>

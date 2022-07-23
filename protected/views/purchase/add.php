@@ -22,7 +22,7 @@ $this->title = 'Purchase';
                             <div class="col-2">
                                 <select id="product-user" class="form-control">
                                     <option value="1">M</option>
-                                    <option value="2" selected>K</option>
+                                    <option value="2">K</option>
                                 </select>
                             </div>
                         </div>
