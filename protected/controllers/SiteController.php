@@ -2,16 +2,14 @@
 
 namespace app\controllers;
 
-use app\models\search\SpendingSearch;
 use Yii;
-use app\models\search\ProductSearch;
-use app\models\Spending;
+use app\models\form\RegistrationForm;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
-use app\models\LoginForm;
-use app\models\ContactForm;
+use app\models\form\LoginForm;
+use app\models\form\ContactForm;
 
 class SiteController extends Controller
 {
@@ -68,44 +66,6 @@ class SiteController extends Controller
     }
 
     /**
-     * Displays statistic page.
-     *
-     * @return string
-     */
-    public function actionPurchase()
-    {
-        return $this->render('purchase', [
-            'productList' => ProductSearch::list(),
-            'spending' => SpendingSearch::month(),
-        ]);
-    }
-
-    /**
-     * Displays statistic page.
-     *
-     * @return string
-     */
-    public function actionPurchaseAddProductAjax()
-    {
-        $datetime = Yii::$app->request->post('datetime');
-        $productId = intval(Yii::$app->request->post('productId'));
-        $price = floatval(Yii::$app->request->post('price'));
-        $userId = floatval(Yii::$app->request->post('user'));
-
-        $model = new Spending();
-        $model->productId = $productId;
-        $model->price = $price;
-        $model->userId = $userId;
-        $model->datetime = date ('Y-m-d H:i:s', strtotime($datetime));
-
-        if($model->save()){
-            return 1;
-        }
-
-        return 0;
-    }
-
-    /**
      * Login action.
      *
      * @return Response|string
@@ -153,6 +113,25 @@ class SiteController extends Controller
             return $this->refresh();
         }
         return $this->render('contact', [
+            'model' => $model,
+        ]);
+    }
+
+    /**
+     * Displays registration page.
+     *
+     * @return Response|string
+     */
+    public function actionRegistration()
+    {
+        $model = new RegistrationForm();
+
+        if ($model->load(Yii::$app->request->post())) {
+            if($model->registration())
+                return $this->goHome();
+        }
+
+        return $this->render('registration', [
             'model' => $model,
         ]);
     }
